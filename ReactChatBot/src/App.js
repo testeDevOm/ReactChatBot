@@ -1,21 +1,25 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { sendMessage } from './chat';
+import { connect } from 'react-redux';
 import './App.css';
 
 class App extends Component {
   render() {
+    const { feed, sendMessage } = this.props;
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <h1>ChatBot says Hi!</h1>
+        <ul>
+          {feed.map( entry => <li>{ entry.text }</li> )}
+        </ul>
+        <input type='text' onKeyDown={ (e) => e.keyCode === 13 ? sendMessage(e.target.value): null}/>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  feed: state
+});
+
+export default connect(mapStateToProps, { sendMessage })(App);
