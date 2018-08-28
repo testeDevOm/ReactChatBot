@@ -12,7 +12,7 @@ class App extends Component {
         <ul>
           {feed.map( entry => <li>{ entry.text }</li> )}
         </ul>
-        <input type='text' onKeyDown={ (e) => e.keyCode === 13 ? sendMessage(e.target.value): null}/>
+        <input type='text' onKeyDown={ (e) => e.keyCode === 13 ? sendMessage(e.target.value): null} autofocus/>
       </div>
     );
   }
