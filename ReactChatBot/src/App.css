@@ -26,3 +26,13 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.fadeOut{
+  background: #e9c9ff;
+  transition: background-color 2s ease-out;
+}
+.sidedBox{
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+}
