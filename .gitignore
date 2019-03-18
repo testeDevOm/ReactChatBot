@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-
+/src/api-ai-javascript
 # testing
 /coverage
 
